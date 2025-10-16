@@ -1,0 +1,7 @@
+<servers>
+    <server>
+        <id>TomcatServer</id>
+        <username>tomcat</username>
+        <password>tomcat1234!</password>
+    </server>
+</servers>
