@@ -1,7 +1,15 @@
-<servers>
-    <server>
-        <id>TomcatServer</id>
-        <username>tomcat</username>
-        <password>tomcat1234!</password>
-    </server>
-</servers>
+<settings>
+  <profiles>
+    <profile>
+      <id>TomcatServer</id>
+      <properties>
+        <cargo.remote.uri>http://localhost:8080/manager/text</cargo.remote.uri>
+        <cargo.remote.username>tomcat</cargo.remote.username>
+        <cargo.remote.password>tomcat1234!</cargo.remote.password>
+      </properties>
+    </profile>
+  </profiles>
+  <activeProfiles>
+    <activeProfile>cargo-remote</activeProfile>
+  </activeProfiles>
+</settings>
