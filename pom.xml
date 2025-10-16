@@ -328,10 +328,10 @@
                     <configuration>
                         <type>runtime</type>
                         <properties>
-                            <cargo.tomcat.manager.url>http://localhost:8080/manager/text</cargo.tomcat.manager.url>
-                            <cargo.server>TomcatServer</cargo.server>
-                            <cargo.remote.username>tomcat</cargo.remote.username>
-                            <cargo.remote.password>tomcat1234!</cargo.remote.password>
+                        <cargo.tomcat.manager.url>${env.CARGO_TOMCAT_MANAGER_URL}</cargo.tomcat.manager.url>
+                        <cargo.server>${env.CARGO_SERVER_ID}</cargo.server>
+                        <cargo.remote.username>${env.CARGO_USERNAME}</cargo.remote.username>
+                        <cargo.remote.password>${env.CARGO_PASSWORD}</cargo.remote.password>
                         </properties>
                     </configuration>
                 </configuration>
@@ -531,9 +531,9 @@
                 <db.script>mysql</db.script>
                 <jpa.database>MYSQL</jpa.database>
                 <jdbc.driverClassName>com.mysql.cj.jdbc.Driver</jdbc.driverClassName>
-                <jdbc.url>jdbc:mysql://[Change Me]:3306/petclinic?useUnicode=true</jdbc.url>
-                <jdbc.username>root</jdbc.username>
-                <jdbc.password>petclinic</jdbc.password>
+                <jdbc.url>${env.JDBC_URL}</jdbc.url>
+                <jdbc.username>${env.JDBC_USERNAME}</jdbc.username>
+                <jdbc.password>${env.JDBC_PASSWORD}</jdbc.password>
             </properties>
             <dependencies>
                 <dependency>
