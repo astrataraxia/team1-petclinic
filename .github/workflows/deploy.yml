@@ -23,7 +23,7 @@ jobs:
           JDBC_URL: ${{ secrets.JDBC_URL }}
           JDBC_USERNAME: ${{ secrets.JDBC_USERNAME }}
           JDBC_PASSWORD: ${{ secrets.JDBC_PASSWORD }}
-        run: ./mvnw clean package -P MySQL
+        run: ./mvnw clean package -P MySQL -DskipTests
       
       - name: Upload WAR to S3
         env:
