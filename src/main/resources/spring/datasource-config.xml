@@ -28,8 +28,8 @@
         p:username="${jdbc.username}"
         p:password="${jdbc.password}"
 
-        p:initialSize="10"
-        p:minIdle="10"
+        p:initialSize="20"
+        p:minIdle="20"
         p:maxIdle="80"
         p:maxActive="80"
         p:maxWait="30000"
