@@ -38,6 +38,7 @@
         p:validationQuery="SELECT 1"
         p:validationQueryTimeout="3"
         p:validationInterval="30000"
+        p:jmxEnabled="true"
         />
 
     <beans profile="javaee">
