@@ -21,19 +21,24 @@
     <!-- Configurer that replaces ${...} placeholders with values from a properties file -->
     <context:property-placeholder location="classpath:spring/data-access.properties" system-properties-mode="OVERRIDE"/>
 
-    <!-- DataSource configuration for the tomcat jdbc connection pool -->
-    <bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource"
-          p:driverClassName="${jdbc.driverClassName}"
-          p:url="${jdbc.url}"
-          p:username="${jdbc.username}"
-          p:password="${jdbc.password}"/>
+    <!-- ★★★ 이 코드로 기존 dataSource Bean을 교체하세요 ★★★ -->
+    <bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close"
+        p:driverClassName="${jdbc.driverClassName}"
+        p:url="${jdbc.url}"
+        p:username="${jdbc.username}"
+        p:password="${jdbc.password}"
 
-    <!-- NOTE:
-         The automatic database initialization section has been removed.
-         (jdbc:initialize-database was deleted)
-         This means the application will now connect to an existing database
-         without attempting to run schema.sql or data.sql scripts.
-    -->
+        p:initialSize="10"
+        p:minIdle="10"
+        p:maxIdle="80"
+        p:maxActive="80"
+        p:maxWait="30000"
+
+        p:testOnBorrow="true"
+        p:validationQuery="SELECT 1"
+        p:validationQueryTimeout="3"
+        p:validationInterval="30000"
+        />
 
     <beans profile="javaee">
         <!-- JNDI DataSource for JEE environments -->
